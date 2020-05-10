@@ -40,6 +40,7 @@ import com.dexterous.flutterlocalnotifications.models.styles.MessagingStyleInfor
 import com.dexterous.flutterlocalnotifications.models.styles.StyleInformation;
 import com.dexterous.flutterlocalnotifications.utils.BooleanUtils;
 import com.dexterous.flutterlocalnotifications.utils.StringUtils;
+import com.dexterous.flutterlocalnotifications.utils.BitmapUtils;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import com.google.gson.reflect.TypeToken;
@@ -364,7 +365,7 @@ public class FlutterLocalNotificationsPlugin implements MethodCallHandler, Plugi
                 icon = IconCompat.createWithResource(context, getDrawableResourceId(context, iconPath));
                 break;
             case BitmapFilePath:
-                icon = IconCompat.createWithBitmap(BitmapFactory.decodeFile(iconPath));
+                icon = IconCompat.createWithBitmap(BitmapUtils.getCircleBitmap(BitmapFactory.decodeFile(iconPath)));
                 break;
             case ContentUri:
                 icon = IconCompat.createWithContentUri(iconPath);
